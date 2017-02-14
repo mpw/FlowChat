@@ -19,6 +19,7 @@
 @property (nonatomic,strong) MethodServer *methodServer;
 @property (nonatomic,strong) MPWByteStream *console;
 @property (nonatomic,strong) MPWActionStreamAdapter *adapter;
+@property (nonatomic,strong) MPWPipe *pipe;
 
 
 @end
@@ -58,11 +59,13 @@
     self.console=[MPWByteStream streamWithTarget:self.messages.textStorage.mutableString];
     MPWSocketStream *socket=[[MPWSocketStream alloc] initWithURL:[NSURL URLWithString:@"socket://localhost:9001"]];
     MPWByteStream *socketSource=[MPWByteStream streamWithTarget:socket];
-    MPWPipe *p= [MPWPipe filters:@[[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:nil], ^(NSString *s){ return [s stringByAppendingString:@"\n"];}]];
+    self.pipe=[MPWPipe filters:@[[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:nil], ^(NSString *s){ return [s stringByAppendingString:@"\n"];},@[ self.console, socketSource ]]];
     
-    MPWScatterStream *splitter=[MPWScatterStream filters:@[ self.console, socketSource ]];
-    [p setTarget:splitter];
+//    MPWScatterStream *splitter=[MPWScatterStream filters:];
+//    [self.pipe setTarget:splitter];
     [socket setTarget:self.console];
+    [socketSource setTarget:socket];
+    [self.console setTarget:self.messages.textStorage.mutableString];
   
     [socket open];
 
