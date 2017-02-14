@@ -12,6 +12,10 @@
 		1FB0A81D1E52380F00E552A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0A81C1E52380F00E552A0 /* Assets.xcassets */; };
 		1FB0A8201E52380F00E552A0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0A81E1E52380F00E552A0 /* MainMenu.xib */; };
 		1FB0A82B1E52380F00E552A0 /* FlowChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0A82A1E52380F00E552A0 /* FlowChatUITests.m */; };
+		1FB0A8371E52385200E552A0 /* ObjectiveSmalltalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB0A8361E52385200E552A0 /* ObjectiveSmalltalk.framework */; };
+		1FB0A8391E52385900E552A0 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB0A8381E52385900E552A0 /* MPWFoundation.framework */; };
+		1FB0A83B1E52386800E552A0 /* MethodServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB0A83A1E52386800E552A0 /* MethodServer.framework */; };
+		1FB0A83E1E52420A00E552A0 /* MPWActionStreamAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0A83D1E52420A00E552A0 /* MPWActionStreamAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,11 @@
 		1FB0A8261E52380F00E552A0 /* FlowChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB0A82A1E52380F00E552A0 /* FlowChatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlowChatUITests.m; sourceTree = "<group>"; };
 		1FB0A82C1E52381000E552A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FB0A8361E52385200E552A0 /* ObjectiveSmalltalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveSmalltalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FB0A8381E52385900E552A0 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FB0A83A1E52386800E552A0 /* MethodServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MethodServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FB0A83C1E52420A00E552A0 /* MPWActionStreamAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWActionStreamAdapter.h; sourceTree = "<group>"; };
+		1FB0A83D1E52420A00E552A0 /* MPWActionStreamAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWActionStreamAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB0A83B1E52386800E552A0 /* MethodServer.framework in Frameworks */,
+				1FB0A8391E52385900E552A0 /* MPWFoundation.framework in Frameworks */,
+				1FB0A8371E52385200E552A0 /* ObjectiveSmalltalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +73,7 @@
 				1FB0A8151E52380F00E552A0 /* FlowChat */,
 				1FB0A8291E52380F00E552A0 /* FlowChatUITests */,
 				1FB0A8141E52380F00E552A0 /* Products */,
+				1FB0A8351E52385200E552A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +89,8 @@
 		1FB0A8151E52380F00E552A0 /* FlowChat */ = {
 			isa = PBXGroup;
 			children = (
+				1FB0A83C1E52420A00E552A0 /* MPWActionStreamAdapter.h */,
+				1FB0A83D1E52420A00E552A0 /* MPWActionStreamAdapter.m */,
 				1FB0A8161E52380F00E552A0 /* AppDelegate.h */,
 				1FB0A8171E52380F00E552A0 /* AppDelegate.m */,
 				1FB0A81C1E52380F00E552A0 /* Assets.xcassets */,
@@ -101,6 +116,16 @@
 				1FB0A82C1E52381000E552A0 /* Info.plist */,
 			);
 			path = FlowChatUITests;
+			sourceTree = "<group>";
+		};
+		1FB0A8351E52385200E552A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FB0A83A1E52386800E552A0 /* MethodServer.framework */,
+				1FB0A8381E52385900E552A0 /* MPWFoundation.framework */,
+				1FB0A8361E52385200E552A0 /* ObjectiveSmalltalk.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB0A83E1E52420A00E552A0 /* MPWActionStreamAdapter.m in Sources */,
 				1FB0A81B1E52380F00E552A0 /* main.m in Sources */,
 				1FB0A8181E52380F00E552A0 /* AppDelegate.m in Sources */,
 			);
