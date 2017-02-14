@@ -49,24 +49,22 @@
     [[self interpreter] evaluateScriptString:@"scheme:ivar := ref:var:delegate asScheme."];
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(methodsDefined) name:@"methodsDefined" object:nil];
-    
-    
 }
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-//    NSLog(@"message box: %@",self.messageBox);
-    self.console=[MPWByteStream streamWithTarget:self.messages.textStorage.mutableString];
+    self.console=[MPWByteStream stream];
     MPWSocketStream *socket=[[MPWSocketStream alloc] initWithURL:[NSURL URLWithString:@"socket://localhost:9001"]];
-    MPWByteStream *socketSource=[MPWByteStream streamWithTarget:socket];
-    self.pipe=[MPWPipe filters:@[[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:nil], ^(NSString *s){ return [s stringByAppendingString:@"\n"];},@[ self.console, socketSource ]]];
+    MPWStream *textFieldStream=[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:nil];
     
-//    MPWScatterStream *splitter=[MPWScatterStream filters:];
-//    [self.pipe setTarget:splitter];
-    [socket setTarget:self.console];
-    [socketSource setTarget:socket];
-    [self.console setTarget:self.messages.textStorage.mutableString];
-  
+    self.pipe=[MPWPipe filters:
+               @[textFieldStream,
+                 @"%%@\n",
+                @[ self.console, @[[MPWByteStream stream], socket, self.console ] ],
+                ]
+               ];
+    
+   [self.pipe setTarget:self.messages.textStorage.mutableString];
     [socket open];
 
 }
