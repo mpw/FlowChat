@@ -57,7 +57,7 @@
 //    NSLog(@"message box: %@",self.messageBox);
     self.console=[MPWByteStream streamWithTarget:self.messages.textStorage.mutableString];
     MPWByteStream *socketSource;
-    MPWPipe *p= [MPWPipe filters:@[ ^(NSString *s){ return [s stringByAppendingString:@"\n"];}]];
+    MPWPipe *p= [MPWPipe filters:@[[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:nil], ^(NSString *s){ return [s stringByAppendingString:@"\n"];}]];
     
     MPWSocketStream *socket=[[MPWSocketStream alloc] initWithURL:[NSURL URLWithString:@"socket://localhost:9001"]];
     socketSource=[MPWByteStream streamWithTarget:socket];
@@ -67,11 +67,7 @@
     [socket setTarget:self.console];
   
     [socket open];
-//    [[socket async] run];
-    NSLog(@"got here1!");
-//    [p setTarget:self.console];
 
-    self.adapter=[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:p];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
