@@ -10,6 +10,8 @@
 #import <MethodServer/MethodServer.h>
 #import <ObjectiveSmalltalk/MPWStCompiler.h>
 #import "MPWActionStreamAdapter.h"
+#import "MPWFoundation/MPWSocketStream.h"
+#import "MPWFoundation/MPWScatterStream.h"
 
 @interface AppDelegate ()
 
@@ -53,11 +55,23 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 //    NSLog(@"message box: %@",self.messageBox);
-    self.console=[MPWByteStream Stderr];
+    self.console=[MPWByteStream streamWithTarget:self.messages.textStorage.mutableString];
+    MPWByteStream *socketSource;
     MPWPipe *p= [MPWPipe filters:@[ ^(NSString *s){ return [s stringByAppendingString:@"\n"];}]];
-    [p setTarget:self.console];
+    
+    MPWSocketStream *socket=[[MPWSocketStream alloc] initWithURL:[NSURL URLWithString:@"socket://localhost:9001"]];
+    socketSource=[MPWByteStream streamWithTarget:socket];
+    MPWThreadSwitchStream *mainThreadConsole=[MPWThreadSwitchStream streamWithTarget:self.console];
+    MPWScatterStream *splitter=[MPWScatterStream filters:@[ self.console, socketSource ]];
+    [p setTarget:splitter];
+    [socket setTarget:self.console];
+  
+    [socket open];
+//    [[socket async] run];
+    NSLog(@"got here1!");
+//    [p setTarget:self.console];
 
-    self.adapter=[[MPWActionStreamAdapter alloc] initWithTextField:self.messageBox target:p];
+    self.adapter=[[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:p];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
