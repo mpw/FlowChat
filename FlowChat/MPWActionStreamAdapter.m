@@ -5,6 +5,8 @@
 //  Created by Marcel Weiher on 2/13/17.
 //  Copyright © 2017 metaobject. All rights reserved.
 //
+//  Adapt NSControls as senders
+//
 
 #import "MPWActionStreamAdapter.h"
 #import <Cocoa/Cocoa.h>
@@ -33,14 +35,13 @@
 
 -(void)getString:sender
 {
-//    NSLog(@"getString %@ from %@ write to %@",[sender stringValue],sender,self.target);
     [self.target writeObject:[sender stringValue]];
 }
 
 - (void) controlTextDidChange: (NSNotification *)note {
     
     NSTextField * changedField = [note object];
-    [self.target writeObject:[changedField stringValue]];
+    [self.target writeObject:[changedField objectValue]];
 }
 
 
