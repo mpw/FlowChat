@@ -11,6 +11,7 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (nonatomic,weak) IBOutlet NSTextField *messageBox;
+@property (nonatomic,weak) IBOutlet NSSlider    *slider;
 @property (nonatomic,weak) IBOutlet NSTextView  *messages;
 
 @end

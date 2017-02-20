@@ -1,0 +1,14 @@
+# Carthage Configuration
+#
+# How to add a framework:
+#
+# 1. Add the definition to this `Cartfile`
+# 2. Run `carthage update`
+# 3. Add a reference from `/app-ios/Carthage/Build/iOS/*.framework` to the Xcode `Carthage` folder group
+# 4. Drag and drop the reference into the `app-ios` target `Embedded Binaries`
+# 5. Drag and drop the reference into the other targets `Linked Frameworks and Libraries` if needed
+# 6. Add the framework path in the `app-ios` target `Build Phases > Run Script > carthage copy-frameworks > Input Files`
+# 7. Insert the `LICENSE` content into `/app-ios/vendor/vendor-license.html`
+
+
+github "mpw/MPWFoundation" "bcc99069f934ee2259e7864787b8471c00ef9889"

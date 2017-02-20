@@ -1,0 +1,10 @@
+digraph {
+    node [shape=rect style=rounded];
+    textfield -> massage -> socket
+    massage -> chatlog
+    socket -> chatlog
+
+    socket -> "nc -l 9001"
+    "nc -l 9001" -> socket
+    
+}

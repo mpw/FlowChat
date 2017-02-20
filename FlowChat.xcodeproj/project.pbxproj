@@ -13,7 +13,6 @@
 		1FB0A8201E52380F00E552A0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0A81E1E52380F00E552A0 /* MainMenu.xib */; };
 		1FB0A82B1E52380F00E552A0 /* FlowChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0A82A1E52380F00E552A0 /* FlowChatUITests.m */; };
 		1FB0A8391E52385900E552A0 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB0A8381E52385900E552A0 /* MPWFoundation.framework */; };
-		1FB0A83E1E52420A00E552A0 /* MPWActionStreamAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0A83D1E52420A00E552A0 /* MPWActionStreamAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +39,6 @@
 		1FB0A8361E52385200E552A0 /* ObjectiveSmalltalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveSmalltalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB0A8381E52385900E552A0 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB0A83A1E52386800E552A0 /* MethodServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MethodServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FB0A83C1E52420A00E552A0 /* MPWActionStreamAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWActionStreamAdapter.h; sourceTree = "<group>"; };
-		1FB0A83D1E52420A00E552A0 /* MPWActionStreamAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWActionStreamAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +82,6 @@
 		1FB0A8151E52380F00E552A0 /* FlowChat */ = {
 			isa = PBXGroup;
 			children = (
-				1FB0A83C1E52420A00E552A0 /* MPWActionStreamAdapter.h */,
-				1FB0A83D1E52420A00E552A0 /* MPWActionStreamAdapter.m */,
 				1FB0A8161E52380F00E552A0 /* AppDelegate.h */,
 				1FB0A8171E52380F00E552A0 /* AppDelegate.m */,
 				1FB0A81C1E52380F00E552A0 /* Assets.xcassets */,
@@ -227,7 +222,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FB0A83E1E52420A00E552A0 /* MPWActionStreamAdapter.m in Sources */,
 				1FB0A81B1E52380F00E552A0 /* main.m in Sources */,
 				1FB0A8181E52380F00E552A0 /* AppDelegate.m in Sources */,
 			);
@@ -421,6 +415,7 @@
 				1FB0A8311E52381000E552A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FB0A8321E52381000E552A0 /* Build configuration list for PBXNativeTarget "FlowChatUITests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +424,7 @@
 				1FB0A8341E52381000E552A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
