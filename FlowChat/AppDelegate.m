@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MPWActionStreamAdapter.h"
 @import MPWFoundation;
 
 @interface AppDelegate ()
