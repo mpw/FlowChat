@@ -19,20 +19,22 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
     MPWByteStream *console=[MPWByteStream stream];
-    MPWSocketStream *socket=[[MPWSocketStream alloc] initWithURL:[NSURL URLWithString:@"socket://localhost:9001"]];
+    NSURL *chatserver=[NSURL URLWithString:@"socket://localhost:9001"];
+    MPWSocketStream *socket=[[MPWSocketStream alloc] initWithURL:chatserver];
     
     self.pipe=[MPWPipe filters:
-                 @[ [[MPWActionStreamAdapter alloc] initWithUIControl:self.messageBox target:nil],
+                 @[ self.messageBox,
                     @"%%@\n",
-                    @[ console, @[[MPWByteStream stream], socket, console ] ],
+                    @[ @[ @"%me: %@", console] ,
+                       @[ @"%messasge: %@", [MPWByteStream stream], socket,  console ] ],
                   ]
                ];
     
     [self.pipe setTarget:self.messages.textStorage.mutableString];
     [socket open];
-
 }
 
 

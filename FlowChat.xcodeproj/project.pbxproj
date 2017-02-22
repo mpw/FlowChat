@@ -26,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F5944B11E5DAA9800CFB52D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1FB0A8131E52380F00E552A0 /* FlowChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB0A8161E52380F00E552A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1FB0A8171E52380F00E552A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		1FB0A80A1E52380F00E552A0 = {
 			isa = PBXGroup;
 			children = (
+				1F5944B11E5DAA9800CFB52D /* README.md */,
 				1FB0A8151E52380F00E552A0 /* FlowChat */,
 				1FB0A8291E52380F00E552A0 /* FlowChatUITests */,
 				1FB0A8141E52380F00E552A0 /* Products */,
