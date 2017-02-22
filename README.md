@@ -5,7 +5,7 @@ It is a simple chat client that talks to a local server on port 9001.  (You need
 
 Anything typed into the input textfield gets echoed to the chat log and sent to the socket, and any input received from the socket is also echoed to the chat log.
 
-![](Flowchat/flowchat-diagram.png)
+![](FlowChat/flowchat-diagram.png)
 
 The code of the application is a pipe defined in the AppDelegate's `applicationDidFinishLaunching:` method, and reflects the diagram fairly directly:
 
