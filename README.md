@@ -3,6 +3,9 @@ Super simplistic network chat application demonstrating the use of ObjectFlow in
 
 It is a simple chat client that talks to a local server on port 9001.  (You need to start this manually via `nc -l 9001` in  Terminal window).
 
+![](flowchat-screen.png)
+
+
 Anything typed into the input textfield gets echoed to the chat log and sent to the socket, and any input received from the socket is also echoed to the chat log.
 
 ![](FlowChat/flowchat-diagram.png)
