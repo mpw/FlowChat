@@ -1,6 +1,6 @@
 digraph {
     node [shape=rect style=rounded];
-    textfield -> massage -> socket
+    textfield -> message -> socket
     massage -> chatlog
     socket -> chatlog
 
